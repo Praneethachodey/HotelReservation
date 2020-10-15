@@ -4,6 +4,8 @@ import java.text.ParseException;
 
 import org.junit.*;
 
+import come.bridgelabz.hotelreservation.Hotel.customers;
+
 public class HotelReservationTest {
 	HotelReservation hotelreservation;
 
@@ -26,7 +28,7 @@ public class HotelReservationTest {
 
 	@Test
 	public void given3Hotels_whenGivenDates_ShouldReturnCheapestHotel() throws ParseException {
-		Hotel cheapHotel = hotelreservation.findCheapestHotel("16Mar2020", "17Mar2020", "18Mar2020");
+		Hotel cheapHotel = hotelreservation.findCheapestHotel(customers.REGULAR, "16Mar2020", "17Mar2020", "18Mar2020");
 		Assert.assertEquals("Lakewood", cheapHotel.hotelName);
 
 	}
@@ -40,7 +42,7 @@ public class HotelReservationTest {
 
 	@Test
 	public void given3Hotels_whenGivenDatesIncludingWeekends_ShouldReturnCheapestHotel() throws ParseException {
-		Hotel cheapHotel = hotelreservation.findCheapestHotel("11Sep2020", "12Sep2020");
+		Hotel cheapHotel = hotelreservation.findCheapestHotel(customers.REGULAR,"11Sep2020", "12Sep2020");
 		Assert.assertEquals("Bridgewood", cheapHotel.hotelName);
 	}
 
@@ -53,7 +55,7 @@ public class HotelReservationTest {
 
 	@Test
 	public void given3Hotels_whenGivenDates_ShouldReturnCheapestHotelAsPerRating() throws ParseException {
-		Hotel cheapHotel = hotelreservation.findCheapestHotel("11Sep2020", "12Sep2020");
+		Hotel cheapHotel = hotelreservation.findCheapestHotel(customers.REGULAR,"11Sep2020", "12Sep2020");
 		Assert.assertEquals("Bridgewood", cheapHotel.hotelName);
 	}
 
@@ -61,6 +63,12 @@ public class HotelReservationTest {
 	public void given3Hotels_whenGivenDates_ShouldReturnBestRated() throws ParseException {
 		Hotel bestRated = hotelreservation.findBestRatedHotel("11Sep2020", "12Sep2020");
 		Assert.assertEquals("Ridgewood", bestRated.hotelName);
+	}
+	
+	@Test
+	public void given3Hotels_whenGivenDatesAndRegularOrLoyalty_ShouldReturnCheapestHotel() throws ParseException {
+		Hotel cheapHotel = hotelreservation.findCheapestHotel(customers.LOYALTY,"11Sep2020", "12Sep2020");
+		Assert.assertEquals("Ridgewood", cheapHotel.hotelName);
 	}
 
 }

@@ -4,6 +4,8 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
+import come.bridgelabz.hotelreservation.Hotel.customers;
+
 public class HotelReservation {
 
 	public List<Hotel> listOfHotels = new ArrayList<>();
@@ -22,11 +24,11 @@ public class HotelReservation {
 	}
 
 	// method to return cheapest hotel
-	public Hotel findCheapestHotel(String... days) throws ParseException {
+	public Hotel findCheapestHotel(customers type ,String... days) throws ParseException {
 		int lowestPrice = Integer.MAX_VALUE;
 		Hotel cheapHotel = listOfHotels.get(0);
 		for (int hotel = 0; hotel < listOfHotels.size(); hotel++) {
-			int price = listOfHotels.get(hotel).calculatePrice(days);
+			int price = listOfHotels.get(hotel).calculatePrice(type, days);
 			if (price < lowestPrice) {
 				lowestPrice = price;
 				cheapHotel = listOfHotels.get(hotel);
