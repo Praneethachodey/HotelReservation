@@ -11,7 +11,7 @@ public class Hotel {
 	int regularWeekEndRate;
 	int loyaltyWeekDayRate;
 	int loyaltyWeekEndRate;
-	int rating;
+	Integer rating;
 
 	enum customers {
 		REGULAR, LOYALTY
@@ -37,7 +37,7 @@ public class Hotel {
 	}
 
 	// method to calculate price
-	public int calculatePrice(customers type, String... days) throws ParseException {
+	public Integer calculatePrice(customers type, String... days) throws ParseException {
 		int totalAmount = 0;
 		for (int day = 0; day < days.length; day++) {
 			String whichDay = getDayOfWeek(days[day]);

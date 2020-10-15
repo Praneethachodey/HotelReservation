@@ -11,7 +11,7 @@ public class HotelReservationTest {
 
 	@Before
 	public void displayMessage() {
-		HotelReservation.display();
+		//HotelReservation.display();
 		Hotel hotel1 = new Hotel("Lakewood", 110, 90, 3, 80, 80);
 		Hotel hotel2 = new Hotel("Bridgewood", 150, 50, 4, 110, 50);
 		Hotel hotel3 = new Hotel("Ridgewood", 220, 150, 5, 100, 40);
@@ -50,7 +50,7 @@ public class HotelReservationTest {
 	public void givenRating_WhenAdded_ShouldMatch() {
 		Hotel hotel = new Hotel("Ridgewood", 220, 150, 5, 100, 40);
 		Assert.assertEquals("Ridgewood", hotel.hotelName);
-		Assert.assertEquals(5, hotel.rating);
+		Assert.assertEquals(5, (int)hotel.rating);
 	}
 
 	@Test
@@ -67,6 +67,12 @@ public class HotelReservationTest {
 	
 	@Test
 	public void given3Hotels_whenGivenDatesAndRegularOrLoyalty_ShouldReturnCheapestHotel() throws ParseException {
+		Hotel cheapHotel = hotelreservation.findCheapestHotel(customers.LOYALTY,"11Sep2020", "12Sep2020");
+		Assert.assertEquals("Ridgewood", cheapHotel.hotelName);
+	}
+	
+	@Test
+	public void given3Hotels_whenGivenDatesAndRegularOrLoyalty_ShouldReturnCheapestHotelUsingStreams() throws ParseException {
 		Hotel cheapHotel = hotelreservation.findCheapestHotel(customers.LOYALTY,"11Sep2020", "12Sep2020");
 		Assert.assertEquals("Ridgewood", cheapHotel.hotelName);
 	}
