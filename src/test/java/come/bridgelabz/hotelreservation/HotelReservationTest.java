@@ -25,8 +25,8 @@ public class HotelReservationTest {
 	}
 
 	@Test
-	public void given3Hotels_whenGivenDates_ShouldReturnCheapestHotel() {
-		Hotel cheapHotel = hotelreservation.findCheapestHotel("16March2020", "17March2020", "18March2020");
+	public void given3Hotels_whenGivenDates_ShouldReturnCheapestHotel() throws ParseException {
+		Hotel cheapHotel = hotelreservation.findCheapestHotel("16Mar2020", "17Mar2020", "18Mar2020");
 		Assert.assertEquals("Lakewood", cheapHotel.hotelName);
 
 	}
@@ -36,6 +36,13 @@ public class HotelReservationTest {
 		Hotel hotel = new Hotel("Ridgewood", 220, 150);
 		Assert.assertEquals("Ridgewood", hotel.hotelName);
 		Assert.assertEquals(150, hotel.regularWeekEndRate);
+	}
+	
+	@Test
+	public void given3Hotels_whenGivenDatesIncludingWeekends_ShouldReturnCheapestHotel() throws ParseException {
+		Hotel cheapHotel = hotelreservation.findCheapestHotel("11Sep2020", "12Sep2020");
+		Assert.assertEquals("Lakewood", cheapHotel.hotelName);
+
 	}
 
 }

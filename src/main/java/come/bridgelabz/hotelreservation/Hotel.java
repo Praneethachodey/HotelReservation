@@ -1,5 +1,8 @@
 package come.bridgelabz.hotelreservation;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Hotel {
@@ -14,18 +17,25 @@ public class Hotel {
 
 	}
 
-	@Override
-	public String toString() {
-		String str = "Hotel name : " + this.hotelName + " rates for regular customer : " + this.regularWeekDayRate;
-		return str;
+	// method to get day-weekday/weekend
+	public static String getDayOfWeek(String date) throws ParseException {
+
+		SimpleDateFormat dateFormat = new SimpleDateFormat("ddMMMyyyy");
+		Date actualDate = dateFormat.parse(date);
+		DateFormat dayFormat = new SimpleDateFormat("EE");
+		String day = dayFormat.format(actualDate);
+		return day;
 	}
 
 	// method to calculate price
-	public int calculatePrice(String...days) {
+	public int calculatePrice(String... days) throws ParseException {
 		int totalAmount = 0;
-		int day=0;
-		while(day<days.length) {
-			totalAmount += this.regularWeekDayRate;
+		for (int day = 0; day < days.length; day++) {
+			String whichDay = getDayOfWeek(days[day]);
+			if (whichDay == "Sat" || whichDay == "Sun")
+				totalAmount += this.regularWeekEndRate;
+			else
+				totalAmount += this.regularWeekDayRate;
 			day++;
 		}
 		return totalAmount;
