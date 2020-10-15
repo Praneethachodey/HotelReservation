@@ -9,14 +9,18 @@ public class Hotel {
 	String hotelName;
 	int regularWeekDayRate;
 	int regularWeekEndRate;
+	int loyaltyWeekDayRate;
+	int loyaltyWeekEndRate;
 	int rating;
 
-	public Hotel(String hotelName, int regularWeekDayRate, int regularWeekEndRate, int rating) {
+	public Hotel(String hotelName, int regularWeekDayRate, int regularWeekEndRate, int rating, int loyaltyWeekDayRate,
+			int loyaltyWeekEndRate) {
 		this.hotelName = hotelName;
 		this.regularWeekDayRate = regularWeekDayRate;
 		this.regularWeekEndRate = regularWeekEndRate;
 		this.rating = rating;
-
+		this.loyaltyWeekDayRate = loyaltyWeekDayRate;
+		this.loyaltyWeekEndRate = loyaltyWeekEndRate;
 	}
 
 	// method to get day-weekday/weekend
