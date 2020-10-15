@@ -9,17 +9,18 @@ public class Hotel {
 	String hotelName;
 	int regularWeekDayRate;
 	int regularWeekEndRate;
+	int rating;
 
-	public Hotel(String hotelName, int regularWeekDayRate, int regularWeekEndRate) {
+	public Hotel(String hotelName, int regularWeekDayRate, int regularWeekEndRate,int rating) {
 		this.hotelName = hotelName;
 		this.regularWeekDayRate = regularWeekDayRate;
 		this.regularWeekEndRate = regularWeekEndRate;
+		this.rating=rating;
 
 	}
 
 	// method to get day-weekday/weekend
 	public static String getDayOfWeek(String date) throws ParseException {
-
 		SimpleDateFormat dateFormat = new SimpleDateFormat("ddMMMyyyy");
 		Date actualDate = dateFormat.parse(date);
 		DateFormat dayFormat = new SimpleDateFormat("EE");
