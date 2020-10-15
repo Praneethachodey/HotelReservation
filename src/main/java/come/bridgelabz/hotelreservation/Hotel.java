@@ -11,11 +11,11 @@ public class Hotel {
 	int regularWeekEndRate;
 	int rating;
 
-	public Hotel(String hotelName, int regularWeekDayRate, int regularWeekEndRate,int rating) {
+	public Hotel(String hotelName, int regularWeekDayRate, int regularWeekEndRate, int rating) {
 		this.hotelName = hotelName;
 		this.regularWeekDayRate = regularWeekDayRate;
 		this.regularWeekEndRate = regularWeekEndRate;
-		this.rating=rating;
+		this.rating = rating;
 
 	}
 
@@ -38,7 +38,6 @@ public class Hotel {
 			else
 				totalAmount += this.regularWeekDayRate;
 		}
-		System.out.println(totalAmount);
 		return totalAmount;
 	}
 }
