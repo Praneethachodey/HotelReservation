@@ -21,8 +21,9 @@ public class HotelReservation {
 		}
 	}
 
+	// method to return cheapest hotel
 	public Hotel findCheapestHotel(String... days) throws ParseException {
-		int lowestPrice = 0;
+		int lowestPrice = Integer.MAX_VALUE;
 		Hotel cheapHotel = listOfHotels.get(0);
 		for (int hotel = 0; hotel < listOfHotels.size(); hotel++) {
 			int price = listOfHotels.get(hotel).calculatePrice(days);
@@ -30,6 +31,8 @@ public class HotelReservation {
 				lowestPrice = price;
 				cheapHotel = listOfHotels.get(hotel);
 			}
+			if (price == lowestPrice && cheapHotel.rating < listOfHotels.get(hotel).rating)
+				cheapHotel = listOfHotels.get(hotel);
 		}
 		return cheapHotel;
 	}

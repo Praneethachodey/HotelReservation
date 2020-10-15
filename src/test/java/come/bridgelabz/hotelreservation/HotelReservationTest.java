@@ -50,5 +50,11 @@ public class HotelReservationTest {
 		Assert.assertEquals("Ridgewood", hotel.hotelName);
 		Assert.assertEquals(5, hotel.rating);
 	}
+	
+	@Test
+	public void given3Hotels_whenGivenDates_ShouldReturnCheapestHotelAsPerRating() throws ParseException {
+		Hotel cheapHotel = hotelreservation.findCheapestHotel("11Sep2020", "12Sep2020");
+		Assert.assertEquals("Bridgewood", cheapHotel.hotelName);
+	}
 
 }

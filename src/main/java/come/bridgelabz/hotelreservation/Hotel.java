@@ -33,12 +33,12 @@ public class Hotel {
 		int totalAmount = 0;
 		for (int day = 0; day < days.length; day++) {
 			String whichDay = getDayOfWeek(days[day]);
-			if (whichDay == "Sat" || whichDay == "Sun")
+			if (whichDay.equals("Sat") || whichDay.equals("Sun"))
 				totalAmount += this.regularWeekEndRate;
 			else
 				totalAmount += this.regularWeekDayRate;
-			day++;
 		}
+		System.out.println(totalAmount);
 		return totalAmount;
 	}
 }
