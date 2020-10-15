@@ -11,12 +11,16 @@ public class HotelReservationTest {
 
 	@Before
 	public void displayMessage() {
-		//HotelReservation.display();
 		Hotel hotel1 = new Hotel("Lakewood", 110, 90, 3, 80, 80);
 		Hotel hotel2 = new Hotel("Bridgewood", 150, 50, 4, 110, 50);
 		Hotel hotel3 = new Hotel("Ridgewood", 220, 150, 5, 100, 40);
 		hotelreservation = new HotelReservation();
 		hotelreservation.add(hotel1, hotel2, hotel3);
+	}
+	
+	@Test
+	public void diaplay() {
+		HotelReservation.display();
 	}
 
 	@Test
