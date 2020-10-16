@@ -42,9 +42,9 @@ public class Hotel {
 		for (int day = 0; day < days.length; day++) {
 			String whichDay = getDayOfWeek(days[day]);
 			if (whichDay.equals("Sat") || whichDay.equals("Sun"))
-				totalAmount += type == customers.REGULAR ? this.regularWeekEndRate : this.loyaltyWeekDayRate;
+				totalAmount += type == customers.REGULAR ? this.regularWeekEndRate : this.loyaltyWeekEndRate;
 			else
-				totalAmount += type == customers.REGULAR ? this.regularWeekDayRate : this.loyaltyWeekEndRate;
+				totalAmount += type == customers.REGULAR ? this.regularWeekDayRate : this.loyaltyWeekDayRate;
 		}
 		return totalAmount;
 	}
